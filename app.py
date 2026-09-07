@@ -35,6 +35,12 @@ SHEET_CSV_URL = st.secrets.get(
 def load_data():
     df = pd.read_csv(SHEET_CSV_URL)
     df.columns = df.columns.astype(str).str.strip()
+
+    # 🛠️ BUANG KOLOM DUPLIKAT (misal ada 2 kolom "Invoice Amount" karena
+    # salah satunya punya spasi ekstra sebelum dibersihkan) — ambil yang
+    # pertama muncul saja, supaya df[nama_kolom] selalu 1 kolom (Series).
+    if df.columns.duplicated().any():
+        df = df.loc[:, ~df.columns.duplicated()]
     
     # 🛠️ PEMBERSIHAN KOLOM AREA (SERAGAMKAN FORMAT "Area 2")
     if 'Area' in df.columns:
