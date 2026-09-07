@@ -23,7 +23,7 @@ st.markdown("---")
 # https://docs.google.com/spreadsheets/d/<SHEET_ID>/edit
 SHEET_ID = st.secrets.get("SHEET_ID", "1g3Y6GjXUgjWFtKxC9ul8i0vZgHvamkDwT7j4-_95NMk")
 # GID = ID tab/worksheet spesifik (0 = tab pertama). Ganti jika data ada di tab lain.
-SHEET_GID = st.secrets.get("SHEET_GID", "0")
+SHEET_GID = st.secrets.get("SHEET_GID", "2119013984")
 
 # Bisa juga override penuh via secrets.toml -> SHEET_CSV_URL = "https://...&output=csv"
 SHEET_CSV_URL = st.secrets.get(
