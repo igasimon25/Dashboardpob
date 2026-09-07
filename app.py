@@ -138,7 +138,7 @@ def create_compact_donut_card(title, paid_val, ny_val, color_done='#558B2F', col
         height=180
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, key=f"donut_{title}")
 
     st.markdown(f"""
     <div style='font-size: 11px; text-align: center; color: #555;'>
@@ -463,7 +463,7 @@ if 'Area' in df_filtered.columns:
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key=f"area_donut_{title}")
         
         st.markdown(f"""
             <div style='text-align: center; font-size: 11px; font-weight: bold; color: #222; margin-top: -10px;'>
@@ -642,7 +642,7 @@ if col_reg in df_inv_reg.columns and col_status_sap in df_inv_reg.columns and co
                     plot_bgcolor='rgba(0,0,0,0)'
                 )
                 
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, use_container_width=True, key=f"regional_donut_{idx}_{reg_name}")
                 st.markdown("<br>", unsafe_allow_html=True)
                 
         st.markdown("</div>", unsafe_allow_html=True)
